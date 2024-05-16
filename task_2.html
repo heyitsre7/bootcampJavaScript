@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            background-color: antiquewhite;
+        }
+        #box{
+            height:10px;
+            width: 10%;
+            text-align: center;
+            padding: 10%;
+            margin: 10%;
+            border: 2px solid black;
+        }
+        #btn{
+            
+            background-color: darkgrey;
+        }
+        label{
+            padding-left: 10%;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="box">
+        color
+    </div>
+    <br>
+    <label for="">Button :</label>
+    <button id="btn">Change Color</button>
+
+    <script>
+
+        function getRandomColor() {
+            var r = Math.floor(Math.random() * 256); // Random red color between 0-255
+            var g = Math.floor(Math.random() * 256); // Random green color between 0-255
+            var b = Math.floor(Math.random() * 256); // Random blue color between 0-255
+            return `rgb(${r}, ${g}, ${b})`;
+        }   
+        
+        let element = document.getElementById('btn');
+
+        element.addEventListener('click', function() {
+            box.style.backgroundColor = getRandomColor();
+        });
+    </script>
+</body>
+</html>

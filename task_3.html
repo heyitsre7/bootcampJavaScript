@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #view{
+            height:20px;
+            width: 25%;
+            text-align: center;
+            padding: 1%;
+            margin: 2%;
+            border: 2px solid black;
+        }
+        #btn{
+            margin: 2%;
+        }
+    </style>
+</head>
+<body>
+    <div id="view">
+        
+    </div>
+    <br>
+    <button id="btn"> generate captcha</button>
+
+    <script>
+        let randomStr = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz";
+    
+        let captcha;  //variable for storing random characters
+ 
+        function generate() {
+            let first = randomStr[Math.floor(Math.random() * randomStr.length)];
+            let second = Math.floor(Math.random() * 10);
+            let third = Math.floor(Math.random() * 10);
+            let fourth = randomStr[Math.floor(Math.random() * randomStr.length)];
+            let fifth = randomStr[Math.floor(Math.random() * randomStr.length)];
+            let sixth = Math.floor(Math.random() * 10);
+            captcha = first.toString() + second.toString() + third.toString() + fourth.toString() + fifth.toString() + sixth.toString();
+            return captcha;
+            // console.log(captcha);
+        } 
+        function generateCaptcha() {
+            let captcha = generate();
+            document.getElementById('view').innerText = captcha;
+        }
+
+        
+        document.getElementById('btn').addEventListener('click', generateCaptcha);
+
+        generateCaptcha(); 
+
+    </script>
+</body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #view {
+            height: 20px;
+            width: 25%;
+            text-align: center;
+            padding: 1%;
+            margin: 2%;
+            border: 2px solid black;
+        }
+        #btn {
+            margin: 2%;
+        }
+    </style>
+</head>
+<body>
+    <div id="view"></div>
+    <br>
+    <button id="btn">Generate CAPTCHA</button>
+
+    <script>
+        // Function to generate a random CAPTCHA
+        function generateCaptcha() {
+            let randomStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            let captcha = '';
+            
+            for (let i = 0; i < 6; i++) {
+                captcha += randomStr.charAt(Math.floor(Math.random() * randomStr.length));
+            }
+
+            return captcha;
+        }
+
+        // Function to update the view with the generated CAPTCHA
+        function updateView() {
+            let captcha = generateCaptcha();
+            document.getElementById('view').innerText = captcha;
+        }
+
+        // Attach event listener to the button
+        document.getElementById('btn').addEventListener('click', updateView);
+
+        // Initial view update
+        updateView(); // Generates and displays the initial CAPTCHA
+    </script>
+</body>
+</html> -->
